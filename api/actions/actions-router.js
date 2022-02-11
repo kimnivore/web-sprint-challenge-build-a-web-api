@@ -3,13 +3,24 @@ const express = require('express');
 
 const Actions = require('./actions-model');
 
+const { validateId } = require ('./actions-middlware');
+
 const router = express.Router();
 
-// router.get('/projects', (req, res, next) => {
-//     Actions.
-// })
 
 // [GET] /api/actions
+router.get('/', (req, res, next) => {
+    Actions.get()
+        .then(actions => {
+            res.status(200).json(actions);
+        })
+        .catch(error => {
+            next(error);
+            res.status(500).json({
+                message: 'Error retrieving actions',
+            })
+        })
+});
 
 // [GET] /api/actions/:id
 

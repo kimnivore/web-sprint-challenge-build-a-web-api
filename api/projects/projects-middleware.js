@@ -1,5 +1,5 @@
 // add middlewares here related to projects
-const Projects = require('../projects/projects-model');
+const Projects = require('./projects-model');
 
 async function validateId(req, res, next) {
     const id = req.params.id
