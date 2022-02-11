@@ -6,7 +6,7 @@ const projectsRouter = require('./projects/projects-router');
 
 server.use(express.json());
 
-server.use('./api', actionsRouter);
+// server.use('./api', actionsRouter);
 
 server.use('*', (req, res) => {
     res.send('<h1>Hello world</h1>');

@@ -5,6 +5,6 @@ const Actions = require('./actions-model');
 
 const router = express.Router();
 
-router.get('/projects', (req, res, next) => {
-    Actions.
-})
+// router.get('/projects', (req, res, next) => {
+//     Actions.
+// })
