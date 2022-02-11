@@ -13,8 +13,8 @@ async function validateId(req, res, next) {
 }
 
 function validateProject(req, res, next) {
-    const { name, description } = req.body;
-    if(!name || !name.trim() || !description || !description.trim()) {
+    const { name, description, completed } = req.body;
+    if(!name || !name.trim() || !description || !description.trim() || (completed == null) ) {
         res.status(400).json({message: 'please include a name and description'});
     } else {
         req.name = name.trim();

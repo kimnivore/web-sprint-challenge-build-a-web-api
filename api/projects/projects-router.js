@@ -37,6 +37,13 @@ router.post('/', validateProject, (req, res, next) => {
 });
 
 // [PUT] /api/projects/:id
+router.put('/:id', validateId, validateProject, (req, res, next) => {
+    Projects.update(req.params.id, req.body)
+        .then(project => {
+            res.status(200).json(project)
+        })
+        .catch(next)  
+}); 
 
 // [DELETE] /api/projects/:id
 
