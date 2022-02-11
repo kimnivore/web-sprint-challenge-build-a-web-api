@@ -3,22 +3,24 @@ const express = require('express');
 
 const Projects = require('./projects-model');
 
+const { validateId } = require('./projects-middleware');
+
 const router = express.Router();
 
 // [GET] /api/projects
 router.get('/', (req, res, next) => {
-    console.log('projects router is working');
-    Projects.get(req.query)
+    Projects.get()
         .then(projects => {
             res.status(200).json(projects);
         })
         .catch(error => {
+            console.log(error);
             next(error);
             res.status(500).json({
-                message: "Error retrieving projects",
+                message: 'Error retrieving projects',
             })
         })
-})
+});
 
 // [GET] /api/projects/:id
 

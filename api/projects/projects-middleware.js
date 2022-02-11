@@ -3,7 +3,7 @@ const Projects = require('../projects/projects-model');
 
 async function validateId(req, res, next) {
     const id = req.params.id
-    const project = await Users.get(id);
+    const project = await Projects.get(id);
     if(!project) {
         res.status(404).json({message: 'project not found' });
     } else {
@@ -11,3 +11,5 @@ async function validateId(req, res, next) {
         next();
     }
 }
+
+module.exports = { validateId };
