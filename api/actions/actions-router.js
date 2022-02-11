@@ -23,6 +23,9 @@ router.get('/', (req, res, next) => {
 });
 
 // [GET] /api/actions/:id
+router.get('/:id', validateId, (req, res) => {
+    res.status(200).json(req.actions);
+})
 
 // [POST] /api/actions
 
