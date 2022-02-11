@@ -12,4 +12,15 @@ async function validateId(req, res, next) {
     }
 }
 
-module.exports = { validateId };
+function validateProject(req, res, next) {
+    const { name, description } = req.body;
+    if(!name || !name.trim() || !description || !description.trim()) {
+        res.status(400).json({message: 'please include a name and description'});
+    } else {
+        req.name = name.trim();
+        req.description = description.trim();
+        next();
+    }
+}
+
+module.exports = { validateId, validateProject };
