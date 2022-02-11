@@ -1,16 +1,19 @@
 const express = require('express');
 const server = express();
 
-const actionsRouter = require('./actions/actions-router');
 const projectsRouter = require('./projects/projects-router');
+const actionsRouter = require('./actions/actions-router');
+
 
 server.use(express.json());
 
-// server.use('./api', actionsRouter);
+server.use('/api/projects', projectsRouter);
+server.use('/api/actions', actionsRouter);
 
-server.use('*', (req, res) => {
-    res.send('<h1>Hello world</h1>');
+server.get('/', (req, res) => {
+    res.send(`<h1>Welcome to Projects & Actions</h1>`);
 });
+
 server.use((err, req, res, next) => { //eslint-disable-line
     res.status(500).json({
         message: err.message,
