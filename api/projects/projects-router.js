@@ -46,6 +46,16 @@ router.put('/:id', validateId, validateProject, (req, res, next) => {
 }); 
 
 // [DELETE] /api/projects/:id
+router.delete('/:id', validateId, (req, res, next) => {
+    Projects.remove(req.params.id)
+        .then(project => {
+            res.status(200).json(req.project)
+        })
+        .catch(error => {
+            next(error);
+            res.status(500).json({ message: "Error deleting project" })
+        })
+});
 
 // [GET] /api/projects/:id/actions
 
