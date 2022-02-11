@@ -147,7 +147,42 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+**Node**
+Node.js is used to write server code to communicate with servers/clients using JSON format for data exchange. 
+Some advantages of node for server side code:
+  - uses Javascript for both client and server, which makes it easier to share code and minimize context switching
+  - removes complexity and is asynchronous
+  - gives access to the npm repository and modules
+Some disadvantages are: inability to use specific languages for specific purposes, not being able to take advantage of servers multiple processors, asynchronous makes it harder to learn for developers used to synchronous operations, large npm repository giving too many options
+**Express**
+Express is a framework/module that is used by Node to make it easier to create web applications and services.
+It can:
+ -build we applications
+ -serve single page applications
+ -build restful web services that work with JSON
+ -serve static content
+ -power real time applications using websockets or WebRTC
+Express is simple, light-weight, and compatible with connect middleware. It makes the developers life easier.
+Since it is so simple, developers need to make more decisions does not provide as much when compared to other frameworks. 
+
+2. Understand and explain the use of Middleware.
+Middleware functions are used in express to obtain the request and response objects, operate on the, and trigger an action when called.
+There are 3 different types of middleware categories:
+  1. Built-in middleware -> included in express, but not added automatically. We need to call them through server.use(<middlewarename>) . An example of this is: server.use(express.json());
+  2. Third-party middleware -> npm modules that we install/import by using require(). Examples: morgan, cors, helmet
+  3. Custom middleware ->  functions that we write to perform specific tasks. To do this, we 1) write a function receiving 3-4 arguments. 2) add it to the middleware queue.
+
+3. The basic principles of the REST architectural style.
+REST is a generally agreed upon set of principles and are a recommendation. By using REST, our APIs can be scalable and simpler to maintain. The principles include:
+  -everything is a resource
+  -each resource is accessible with a unique URI
+  -resources have many representations
+  -communication happens over stateless protocol(http)
+  -resource management happens through HTTP methods
+
+
+4. Understand and explain the use of Express Routers.
+Express Routers exists within Express application and have their own Routing and Middleware. Routers allow us to organize the express application so that it is less unwieldy.
+
+5. Describe tooling used to manually test the correctness of an API.
+There are many types of tools that can be used to manually test the correctness of an API. I am familiar with Postman and HTTPie, both of which are used in the same way. GET/POST/PUT/DELETE requests can be tested through these tools. Using these tools, we are able to change the HTTP method, add JSON data to the body, add form data, headers and finally examine the response.

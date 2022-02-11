@@ -14,7 +14,7 @@ async function validateId(req, res, next) {
 
 function validateActions(req, res, next) {
     const { project_id, description, notes, completed } = req.body;
-    if(!project_id || !description || !description.trim() || !notes || !notes.trim() || (completed === null) ) {
+    if(!project_id || !description || !description.trim() || !notes || !notes.trim() || (completed == null) ) {
         res.status(400).json({message: 'please include missing information'});
     } else {
         req.description = description.trim();

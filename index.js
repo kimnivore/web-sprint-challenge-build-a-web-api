@@ -14,7 +14,6 @@ Pull your server into this file and start it!
 */
 
 const server = require('./api/server');
-// const server = express();
 
 require('dotenv').config();
 

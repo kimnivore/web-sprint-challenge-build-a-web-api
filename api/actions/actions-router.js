@@ -7,7 +7,6 @@ const { validateId, validateActions } = require ('./actions-middlware');
 
 const router = express.Router();
 
-
 // [GET] /api/actions
 router.get('/', (req, res, next) => {
     Actions.get()
@@ -49,7 +48,7 @@ router.put('/:id', validateId, validateActions, (req, res, next) => {
 router.delete('/:id', validateId, (req, res, next) => {
     Actions.remove(req.params.id)
         .then(action => {
-            res.status(200).json(req.action)
+            res.status(200).json(action)
         })
         .catch(error => {
             next(error);

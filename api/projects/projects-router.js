@@ -49,7 +49,7 @@ router.put('/:id', validateId, validateProject, (req, res, next) => {
 router.delete('/:id', validateId, (req, res, next) => {
     Projects.remove(req.params.id)
         .then(project => {
-            res.status(200).json(req.project)
+            res.status(200).json(project)
         })
         .catch(error => {
             next(error);
