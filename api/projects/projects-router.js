@@ -58,6 +58,13 @@ router.delete('/:id', validateId, (req, res, next) => {
 });
 
 // [GET] /api/projects/:id/actions
+router.get('/:id/actions', validateId, (req, res, next) => {
+    Projects.getProjectActions(req.params.id)
+        .then(actions => {
+            res.status(200).json(actions);
+        })
+        .catch(next)
+});      
 
 
 module.exports = router;
